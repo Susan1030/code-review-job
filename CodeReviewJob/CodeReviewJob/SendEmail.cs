@@ -43,10 +43,10 @@ namespace CodeReviewJob
                 mMailMessage = new MailMessage();
                 if (!ConfigManager.GetConfig().IsTest)
                 {
-                    //foreach (var toMail in toMails)
-                    //{
-                    //    mMailMessage.To.Add(toMail);
-                    //}
+                    foreach (var toMail in toMails)
+                    {
+                        mMailMessage.To.Add(toMail);
+                    }
                     if (!string.IsNullOrWhiteSpace(testEmail))
                     {
                         mMailMessage.To.Add(testEmail);
