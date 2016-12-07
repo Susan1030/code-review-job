@@ -47,7 +47,7 @@ namespace CodeReviewJob
                     //{
                     //    mMailMessage.To.Add(toMail);
                     //}
-                    if (!string.IsNullOrEmpty(testEmail))
+                    if (!string.IsNullOrWhiteSpace(testEmail))
                     {
                         mMailMessage.To.Add(testEmail);
                     }

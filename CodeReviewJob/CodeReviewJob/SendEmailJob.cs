@@ -26,7 +26,7 @@ namespace CodeReviewJob
                 ReadWriteData read = new CodeReviewJob.ReadWriteData();
                 var winningPeoples = _manager.GetWinningPeoples();
                 var subject = "抽奖日期：" + winningPeoples.FirstOrDefault().ReviewDate;
-                string bodyInfo = read.GetWinningPeopleStrByHtml("ConsoleApplication1.Template.WinningPeople.html",
+                string bodyInfo = read.GetWinningPeopleStrByHtml(typeof(SendEmailJob).Namespace + ".Template.WinningPeople.html",
                     new { Data = winningPeoples, Title = subject });
                 string mailUsername = ConfigManager.GetConfig().EmailUser;
                 string mailPassword = ConfigManager.GetConfig().EmailPwd;
