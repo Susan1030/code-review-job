@@ -9,8 +9,6 @@ namespace CodeReviewJob
     {
         static void Main(string[] args)
         {
-            var bootstrap = new SchedulerBootstrap();
-            bootstrap.Run();
         }
     }
 }
