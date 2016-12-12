@@ -1,0 +1,65 @@
+﻿sql GetFrontendDevelopers
+{
+	SELECT 
+		core.*
+	FROM 
+		[one].[Employee] one
+	JOIN
+		[core].[Employee] core ON core.Id = one.UserId
+	JOIN
+		[data].[JobType] job ON job.Id = one.JobTypeId
+	WHERE 
+		job.Name = N'Frontend' AND
+		one.IsLeader = @IsLeader
+	ORDER BY 
+		Id ASC
+}
+
+sql IsDateCreated
+{
+	SELECT 
+	(
+		CASE WHEN EXISTS
+			(
+				SELECT * FROM one.CodeReview
+				WHERE CodeReview.ReviewDate = @Date
+			) THEN 1
+		ELSE 
+			0
+		END
+	)
+}
+
+sql GetCodeReviewByDate
+{
+	SELECT 
+		one.Id         AS 'Id', 
+		one.ReviewDate AS 'ReviewDate', 
+		core1.*, 
+		core2.*
+	FROM 
+		one.CodeReview one
+	JOIN
+		core.Employee core1 ON core1.Id = one.ReviewerId
+	JOIN
+		core.Employee core2 ON core2.Id = one.FixerId
+	WHERE 
+		one.ReviewDate = @Date
+}
+
+sql SaveReviewerGroups
+{
+	INSERT INTO 
+		one.CodeReview
+		(
+			ReviewerId, 
+			FixerId, 
+			ReviewDate
+		)
+	VALUES
+		(
+			@ReviewerId, 
+			@FixerId, 
+			@ReviewDate
+		)
+}
