@@ -9,7 +9,7 @@ namespace CodeReviewJob
     {
         public IEnumerable<UserModel> GetOneUser()
         {
-            var table = SqlHelper.GetTable("select emp.*,one.BigGroup,one.IsLeader from one.Employee one join Employee emp on emp.Id=one.UserId where one.IsLeader=0 and one.JobType=1");
+            var table = SqlHelper.GetTable("select emp.*,one.BigGroup,one.IsLeader from one.Employee one join Employee emp on emp.Id=one.UserId where one.JobType=1");
             var users = table.Select().Select(p => new UserModel()
             {
                 UserId = p[0].ToString(),

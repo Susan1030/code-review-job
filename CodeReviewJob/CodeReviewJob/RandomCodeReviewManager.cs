@@ -17,7 +17,7 @@ namespace CodeReviewJob
         public RandomCodeReviewManager()
         {
             SysManager userManager = new CodeReviewJob.SysManager();
-            _candidateList = userManager.GetOneUser();
+            _candidateList = userManager.GetOneUser().Where(p => p.IsLeader == false);
             DateTime dt = DateTime.Now;
             var reviewDate = dt;
             _winningPeoples.Add(new WinningPeople() { ReviewDate = reviewDate, Department = Department.Internal });
