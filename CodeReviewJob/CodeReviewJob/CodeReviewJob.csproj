@@ -100,7 +100,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="code-review-job.xml" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="sqls\one.sdmap">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
