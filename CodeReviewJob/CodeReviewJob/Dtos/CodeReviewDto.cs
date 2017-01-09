@@ -13,5 +13,7 @@ namespace CodeReviewJob.Dtos
         public Employee Fixer { get; set; }
 
         public DateTime ReviewDate { get; set; }
+
+        public string ReviewPortal { get; set; }
     }
 }

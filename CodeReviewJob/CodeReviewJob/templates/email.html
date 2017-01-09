@@ -6,11 +6,7 @@
     <title></title>
 </head>
 <body>
-    <div style="align-content">
-        请抽中同事，在限定的当天内，进行Code Review，当天在confluence中<strong>自行</strong>记录：<br />
-        <a href="http://confluence.sms-assist.com/display/SMSON/Code+Review+per+Week">http://confluence.sms-assist.com/display/SMSON/Code+Review+per+Week</a><br />
-        <a href="http://confluence.sms-assist.com/pages/viewpage.action?pageId=3900805">http://confluence.sms-assist.com/pages/viewpage.action?pageId=3900805</a>
-        <br />
+    <div style="align-content">     
         今天的Code Review人员：
     </div>
     <table align="center" border="1" cellpadding="0" cellspacing="0">
@@ -19,6 +15,7 @@
                 <th>Review Date</th>
                 <th>Reviewer</th>
                 <th>Executor</th>
+                <th>Portal</th>
             </tr>
         </thead>
         <tbody>
@@ -27,12 +24,16 @@
                 <td><span>{{ReviewDate}}</span></td>
                 <td><span>{{Reviewer.Name}}</span></td>
                 <td><span>{{Fixer.Name}}</span></td>
+                <td><span>{{ReviewPortal}}</span></td>
             </tr>
             {{/Data}}
         </tbody>
     </table>
     <div style="align-content">
-        根据反馈，我们已将每天三组Code Review改为每天两组，同时不限定大组。<br />
+        根据反馈，我们已将每天三组Code Review改为每天两组，第一组review internal的代码，第二组review affiliate和client的代码，并在对应组<a href="http://confluence.sms-assist.com/display/SMSON/Code+Review"> Code Review</a>文件下进行记录。<br />
+        Reviewer职责：Review代码<br />
+        Executor职责：找到对应开发者并督促其修改。<br />
+        注意：如果未完成，将执行扣分机制，请重视。
         <br />
 
         我们今后Affiliate、Client、Internal的Code Review将一起进行，此法令已经Flysha, Zuo, Susan签字通过。<br />

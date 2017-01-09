@@ -53,18 +53,21 @@ namespace CodeReviewJob
             IList<Employee> frontEndDevelopers, 
             DateTime date, int groupCount)
         {
-            return frontEndDevelopers
+            var reviewDto= frontEndDevelopers
                 .Sample(groupCount * 2)
                 .ToObservable()
                 .Buffer(2)
                 .Select(x => new CodeReviewDto
                 {
-                    Fixer = x[0], 
-                    Reviewer = x[1], 
+                    Fixer = x[0],
+                    Reviewer = x[1],
                     ReviewDate = date
                 })
                 .ToEnumerable()
                 .ToList();
+            reviewDto[0].ReviewPortal = "Internal";
+            reviewDto[1].ReviewPortal = "Client & Affiliate";
+            return reviewDto;
         }
 
         private static void SaveReviewerGroups(IEnumerable<CodeReviewDto> dto)
